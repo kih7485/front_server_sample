@@ -1,5 +1,5 @@
 const path = require("path");
-
+const MyWebpackPlugin = require("./my-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
@@ -16,7 +16,6 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
 
-      /**웹팩 5버전은 file-loader 없이 파일 자동으로 옮겨지는듯??? */
       {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "url-loader",
@@ -28,4 +27,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new MyWebpackPlugin()],
 };
